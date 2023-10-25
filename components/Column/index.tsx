@@ -3,7 +3,7 @@ import TodoCard from "../TodoCard";
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
 
 type Props = {
-  id: string,
+  id: TypedColumn,
   todos: Todo[],
   index: number,
 }
@@ -25,9 +25,9 @@ const Column = ({id, todos, index}: Props) => {
           {...provided.dragHandleProps}
           ref={provided.innerRef}
         >
-          <Droppable droppableId={id.toString()} type="card">
+          <Droppable droppableId={index.toString()} type="card">
             {(provided, snapshot) => (
-              <div {...provided.droppableProps} ref={provided.innerRef} className={`p-2 rounded-2xl shadow-sm ${snapshot.isDraggingOver ? 'bg-green-200' : 'bg-white/50'}`}>
+              <div {...provided.droppableProps} ref={provided.innerRef} className={`p-2 mx-2 rounded-2xl shadow-sm ${snapshot.isDraggingOver ? 'bg-green-200' : 'bg-white/50'}`}>
                 <h2 className="flex justify-between items-center text-xl font-bold p-2">
                   {idToColumnText[id]}
                   <span className="text-sm font-normal bg-gray-200 rounded-full text-gray-500 px-2 py-2">{todos.length}</span>
