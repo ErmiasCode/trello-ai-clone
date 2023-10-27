@@ -7,7 +7,6 @@ Welcome to my NextJS Trello AI project! In this repository, you will find everyt
 - NextJS
 - TypeScript
 - Appwrite Cloud
-- chatGPT API
 - Zustand
 - Tailwind CSS
 - Hero Icons
