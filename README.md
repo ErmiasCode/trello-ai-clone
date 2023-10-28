@@ -1,6 +1,6 @@
-# My NextJS - Trello AI Project
+# My NextJS - Trello Project
 
-Welcome to my NextJS Trello AI project! In this repository, you will find everything you need to download and run this project locally.
+Welcome to my NextJS Trello project! In this repository, you will find everything you need to download and run this project locally.
 
 ### Tech Stack and Highlights
 
