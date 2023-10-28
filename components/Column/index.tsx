@@ -23,9 +23,16 @@ const idToColumnText: {
 };
 
 const Column = ({id, todos, index}: Props) => {
-  const [searchString] = useBoardStore((state) => [state.searchString])
+  const [searchString, setNewTaskType] = useBoardStore((state) => [state.searchString, state.setNewTaskType])
   const openModal = useModalStore((state) => state.openModal)
 
+
+  const handleAddTodo = () => {
+    setNewTaskType(id)
+    openModal()
+  }
+
+  console.log("Data", todos)
 
   return (
     <Draggable draggableId={id} index={index}>
@@ -43,7 +50,7 @@ const Column = ({id, todos, index}: Props) => {
                   <span className="text-sm font-normal bg-gray-200 rounded-full text-gray-500 px-2 py-2">{!searchString ? todos.length : todos.filter(todo => todo.title.toLowerCase().includes(searchString.toLowerCase())).length}</span>
                 </h2>
 
-                <div className="space-y-2">
+                <div className="">
                   {todos.map((todo, index) => {
 
                     if (searchString && !todo.title.toLowerCase().includes(searchString.toLowerCase())) return null;
@@ -66,7 +73,7 @@ const Column = ({id, todos, index}: Props) => {
                   {provided.placeholder}
 
                   <div className="flex justify-end items-end p-1">
-                    <button onClick={openModal} className="text-green-500 hover:text-green-600 transition-colors duration-200 ease-in-out">
+                    <button onClick={handleAddTodo} className="text-green-500 hover:text-green-600 transition-colors duration-200 ease-in-out">
                       <PlusCircleIcon className="h-10 w-10" />
                     </button>
                   </div>
